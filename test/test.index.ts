@@ -5,5 +5,5 @@ describe("Test Group", () => {
     // ARRANGE
     // ACT
     // ASSERT
-  });
-});
+  }); // end of test
+}); // end of describe
