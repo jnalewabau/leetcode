@@ -1,5 +1,27 @@
 export function canPlaceFlowers(flowerbed: number[], n: number): boolean {
-  return false;
+  // Add 0 to the beginning and end of the flowerbed provided to make calcs simpler
+  const flowerBedToProcess = [0, ...flowerbed, 0];
+
+  // console.log({ flowerBedToProcess });
+  let newPlaces = 0;
+  for (let i = 0; i < flowerBedToProcess.length; i++) {
+    // console.log({ i });
+    // Do we have 3 zeros in a row
+    if (
+      flowerBedToProcess[i] === 0 &&
+      (flowerBedToProcess[i + 1] ?? 0) === 0 &&
+      (flowerBedToProcess[i + 2] ?? 1) === 0
+    ) {
+      // console.log(`Can place a flower in index: ${i + 1}`);
+      i = i + 1;
+
+      newPlaces++;
+    }
+  }
+
+  // console.log({ newPlaces });
+  // console.log({ n });
+  return n <= newPlaces;
 }
 // 1  2  3  4  5  6  7  8  9
 // 0, 0, 0, 0, 0, 0, 0, 0, 0
